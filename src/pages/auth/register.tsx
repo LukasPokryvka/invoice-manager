@@ -11,7 +11,6 @@ import InputError from "../../components/InputError";
 import { createUser } from "../../hooks/userQueries";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 
 const Register: NextPage = () => {
   const [name, setName] = useState<string>("");
@@ -20,7 +19,6 @@ const Register: NextPage = () => {
   const [passwordConfirm, setPasswordConfirm] = useState<string>("");
 
   const router = useRouter();
-  const notify = (text: string) => toast(text);
 
   const {
     register,
@@ -39,11 +37,9 @@ const Register: NextPage = () => {
 
   const { mutate, isLoading } = useMutation(createUser, {
     onSuccess: () => {
-      notify("Registration successful. Redirecting to login page.");
       router.push("/auth/login");
     },
     onError: (e) => {
-      notify("Something went wrong");
       console.log(e);
     },
   });

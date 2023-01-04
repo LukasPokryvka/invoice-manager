@@ -7,7 +7,6 @@ import InputError from "../../components/InputError";
 import { loginUser } from "../../hooks/userQueries";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import toast from "react-hot-toast";
 import { loginUserInput, LoginUserSchema } from "../../schemas/LoginUserSchema";
 
 const Login: NextPage = () => {
@@ -15,7 +14,6 @@ const Login: NextPage = () => {
   const [password, setPassword] = useState<string>("");
 
   const router = useRouter();
-  const notify = (text: string) => toast(text);
 
   const {
     register,
