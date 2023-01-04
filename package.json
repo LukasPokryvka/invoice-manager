@@ -6,16 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "be:dev": "cd server && ./pocketbase serve"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@next/font": "13.1.1",
+    "@tanstack/react-query": "^4.20.4",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
+    "axios": "^1.2.2",
+    "daisyui": "^2.46.0",
     "next": "13.1.1",
+    "pocketbase": "^0.9.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.4"
+    "react-hook-form": "^7.41.3",
+    "react-hot-toast": "^2.4.0",
+    "typescript": "4.9.4",
+    "zod": "^3.20.2"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^4.20.4",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
   }
 }
