@@ -29,6 +29,8 @@ export const userBasicInformationInput = z.object({
       message: "ICDPH must be 8 characters long",
     })
     .optional(),
+  payerType: z.string().optional(),
+  register: z.string().optional(),
 });
 
 export type UserBasicInformationSchema = z.infer<

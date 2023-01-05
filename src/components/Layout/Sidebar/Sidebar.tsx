@@ -6,8 +6,9 @@ import { createInvoice, useInvoices } from "../../../hooks/invoiceQueries";
 const Sidebar: React.FunctionComponent = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
+  const pathname = router.pathname;
 
-  const { mutate } = useMutation(createInvoice, {
+  const { mutate: newInvoice } = useMutation(createInvoice, {
     onSuccess: (data) => {
       if (data) {
         router.push(`/invoices/${data.id}`);
@@ -19,17 +20,17 @@ const Sidebar: React.FunctionComponent = () => {
     },
   });
 
-  const { data, error, isLoading } = useInvoices();
+  const { data: invoices, error, isLoading } = useInvoices();
 
   return (
     <aside className="h-screen bg-base-200 w-72 border-r-2 border-secondary-focus border-dashed p-4">
       <section className="flex justify-center">
-        <button onClick={() => mutate()} className="btn btn-primary w-full">
+        <button onClick={() => newInvoice()} className="btn btn-primary w-full">
           New invoice
         </button>
       </section>
       <section className="flex flex-col gap-2 mt-4">
-        {data?.map((invoice) => (
+        {invoices?.map((invoice) => (
           <div key={invoice.id}>
             <Link
               className="btn btn-secondary btn-outline btn-wide"

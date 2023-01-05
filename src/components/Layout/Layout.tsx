@@ -18,7 +18,7 @@ const loggedOutMenu = [
 
 const loggedInMenu = [
   {
-    item: <Link href="/dashboard">Receivers</Link>,
+    item: <Link href="/clients">Clients</Link>,
   },
   {
     item: <Link href="/user/profile">MyInfo</Link>,
@@ -49,7 +49,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <section className="flex">
       {isLoggedIn && <Sidebar />}
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full max-h-screen">
         <div className="navbar bg-base-200">
           <div className="flex-1">
             <Link
@@ -66,7 +66,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
             </ul>
           </div>
         </div>
-        <div className="p-4 grow">{children}</div>
+        <div className="p-4 grow overflow-auto">{children}</div>
       </div>
     </section>
   );

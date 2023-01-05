@@ -1,7 +1,7 @@
 import { CreateUserSchema } from "../schemas/CreateUserSchema";
 import { client } from "../backend/apiClient";
 import { LoginUserSchema } from "../schemas/LoginUserSchema";
-import { UserBasicInformationSchema } from "../schemas/UserBasicInformation";
+import { UserBasicInformationSchema } from "../schemas/UserProfileInformation";
 import { useQuery } from "@tanstack/react-query";
 
 export const createUser = async (userData: CreateUserSchema) =>
