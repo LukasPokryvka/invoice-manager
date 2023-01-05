@@ -29,7 +29,7 @@ export const clientInput = z.object({
       message: "ICDPH must be 8 characters long",
     })
     .optional(),
-  userId: z.string(),
+  userId: z.string().optional(),
 });
 
 export type ClientSchema = z.infer<typeof clientInput>;

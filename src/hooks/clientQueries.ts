@@ -18,10 +18,16 @@ export const createClient = async () => {
   });
 };
 
-export const updateClient = async (
-  clientId: string,
-  clientData: ClientSchema
-) => await client.collection("client").update(clientId, clientData);
+export const updateClient = async ({
+  clientId,
+  clientData,
+}: {
+  clientId: string;
+  clientData: ClientSchema;
+}) => await client.collection("client").update(clientId, clientData);
+
+export const deleteClient = async (clientId: string) =>
+  await client.collection("client").delete(clientId);
 
 export const getClients = async () =>
   await client.collection("client").getFullList(50, {
@@ -41,4 +47,5 @@ export const useClient = (clientId: string) =>
   useQuery({
     queryKey: ["client", clientId],
     queryFn: () => getClient(clientId),
+    enabled: !!clientId,
   });
