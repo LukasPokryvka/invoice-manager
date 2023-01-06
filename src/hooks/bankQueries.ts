@@ -40,7 +40,7 @@ export const getBanks = async () =>
     sort: "-created",
   });
 
-export const useClients = () =>
+export const useBanks = () =>
   useQuery({
     queryKey: ["banks"],
     queryFn: getBanks,
@@ -49,7 +49,7 @@ export const useClients = () =>
 export const getBank = async (bankId: string) =>
   await client.collection("bank").getOne(bankId);
 
-export const useClient = (bankId: string) =>
+export const useBank = (bankId: string) =>
   useQuery({
     queryKey: ["client", bankId],
     queryFn: () => getBank(bankId),
