@@ -52,6 +52,13 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
     },
     {
       item: (
+        <Link className="btn btn-ghost" href="/bank">
+          Banks
+        </Link>
+      ),
+    },
+    {
+      item: (
         <div className="dropdown dropdown-end">
           <label
             tabIndex={0}

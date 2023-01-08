@@ -16,6 +16,7 @@ const Sidebar: React.FunctionComponent = () => {
       if (data) {
         router.push(`/invoices/${data.id}`);
       }
+      toast.success("Invoice created successfuly");
       queryClient.invalidateQueries({ queryKey: ["invoices"] });
     },
     onError: (e) => {
